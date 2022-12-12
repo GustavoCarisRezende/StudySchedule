@@ -1,0 +1,24 @@
+========================================
+	A REDE COM IP, PING E TRACEROUTE
+========================================
+
+	=> I - INTRODUÇÃO
+
+	Neste curso iremos abordar diversos temas relacionados a parte de redes, como servidores DNS, IDHCP, detalhes sobre IPV4, entre outros. Ao fim do curso, iremos criar uma rede para acessar o site do google no programa de simulação de redes.
+
+
+	=> II- DEFININDO A REDE
+	
+	Uma rede é caracterizada por diversas máquinas que realizam a intermediação entre a diferentes pontos, sendo utilizado como exemplo uma requisição ao servidor do Google, onde não existe uma conexão direta entre a máquina do usuário e o servidor. Existem diversos tamanhos de redes, partindo desde pequenas redes domésticas ou até mesmo grandes corporações.
+	
+	=> III - PING
+	
+	Durante o processo de trocas de informações ent re diferentes máquinas em uma rede, podemos utilizar a analogia das cartas para entender como as máquinas são identificadas. Na analogia temos a carta que pode ser comparada ao
+	pacote de informações e, temos o endereço do destinatário, isto é, a pessoa que vai receber aquela carta. Este endereço pode ser comparado ao enderaçamento IP em uma rede.
+	Os IP's são compostos por uma sequência de números, porém, temos o chamado DNS, que podemos utilizar a analogia dos contatos em nosso celular para aprender sobre o mesmo. O DNS funciona como o nome que salvamos os contatos, onde cada nome possuí seu respectivo número, o mesmo ocorre com o DNS, onde o nome utilizado é "convertido" em um endereço IP através dos servidores DNS.
+	Para verificar se determinado IP está acessível pela rde, podemos utilizar o comando 'ping' no prompt de comando do windows ou terminal do linux, como o exemplo:
+		'ping 192.168.10.10'
+	O ping funciona com o protocolo ICMP, onde o mesmo verifica se o endereço informado no comando responde a requisição enviada. No retorno temos um tempo medido em milisegundos, este é o chamado RTT (Round Trip Time), isto é, o tempo que o pacote de informações levou para sair da minha máquina e retornar do endereço informado.
+	Jáo TTL (Time to Live) é o limite no número de interações que o pacote de informações pode experimentar, isto é, a quantidade de máquinas pelo qual o mesmo pode passar até chegar ao IP de destino. Caso seja ultrapassado o limite, o pacote de informações será apagado para evitar travamentos e congestionamento na rede.
+
+========================================
