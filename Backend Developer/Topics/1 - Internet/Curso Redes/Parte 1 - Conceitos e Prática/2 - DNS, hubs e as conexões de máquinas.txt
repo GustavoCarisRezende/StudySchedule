@@ -1,0 +1,27 @@
+============================================
+	DNS, HUBS E AS CONEXÕES DE MÁQUINAS
+============================================
+
+	=> I - MONTANDO REDE 2PC
+
+	Na rede, as máquinas possuem seus endereços de identificação (IP), onde não podemos ter endereços diferentes para máquinas diferentes. Estes endereços não são fixos, e existem duas opções para sua definição, onde uma máquina pode definir os mesmos automaticamente (como os roteadores) ou, temos que definir os mesmos manualmente.
+	Como estamos criando uma rede somente com dois computadores conectados diretamente por um cabo de rede, teremos que definir os endereços manualmente nas configurações de rede do windows, variando de acordo com a versão do SO utilizado. No caso testei a conexão com meu celular na rede utilizando o comando ping no terminal do Windows.
+	Podemos utilizar o ping no IP 127.0.0.1 (localhost) para testar a conexão interna da placa de rede da máquina utilizada, sendo este endereço reservado para esta questão. Este endereço é reservado e não pode ser atribuido a nenhuma máquina na rede.
+	O windows possuí uma configuração de DNS no caminho:
+		- C:\Windows\System32\drivers\etc\hosts
+	Neste caminho são mapeados os IP's e seus 'nomes', no caso o padrão é o localhost. Podemos adicionar novos nomes e seus respectivos IP's, sendo desta forma que os servidores DNS funcionam.
+	No linux o caminho é '/etc/hosts'
+
+
+	=> NSLOOKUP
+
+	A ferramento administrativa nslookup serve para auxiliar na identificação de problemas, nos retornando algumas informações sobre o endereço informado. Podemos esta ferramenta também informando o IP e verificando o DNS. Quanto é exibida a mensagem de resposta não autoritativa, significa que esta informação estava armazenada em cache em alguma máquina da rede, ou seja, a resposta não veio do servidor em questão.
+	Quando informamos um domínio não existente no nslookup, caso o mesmo não exista, nos será apresentada essa informação. Ja com o ping não, pois ficamos esperando a resposta até que o tempo limite se esgote.
+
+
+	=> MONTANDO UMA REDE 3PC
+
+	Para interconectar mais de um aparelho na mesma rede, uma vez que normalmente cada máquina possuí somente uma entrada de rede, foram criados aparelhos com esta função, sendo os hubs e switchs (diferença será explicada no futuro). Estes dispositivos possuem diversas entradas de redes, onde ao invés de conectar uma máquina a outra, conectamos todas ao hub.
+	Desta forma, conseguimos fazer com que os dispositivos se comuniquem na rede.
+
+============================================
