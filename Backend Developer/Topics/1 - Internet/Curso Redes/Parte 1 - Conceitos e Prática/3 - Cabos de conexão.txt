@@ -1,0 +1,31 @@
+==================================
+		CABOS DE CONEXÃO
+==================================
+
+	=> I - TIPOS DE CABO
+
+	Os cabos de rede são contituídos por fios, que por sua vez são crimpados a um conector RJ45. Temos 8 fios em um cabo de rede, onde temos o padrão T568A, que é o padrão de cabos utilizado na crimpagem.
+	Seguindo o padrão T568A, a ordem dos fios é a seguinte:
+		1 - Branco / verde
+		2 - Verde
+		3 - Branco / laranja
+		4 - Azul
+		5 - Branco / azul
+		6 - Laranja
+		7 - Branco / marrom
+		8 - Marrom
+	A placa de rede do computador utiliza dos fios 1 e 2 para enviar informações e os fios 3 e 6 para receber, ja nos HUBS ocorre o inverso. Em um cenário de comunicação entre computador e HUB, caso os fios estejam na mesma posição em ambos os lados, isto é, o fio branco / verde esteja na posição 1 tanto no computador quanto no hub e, assim sucessivamente, chamamos este tipo de cabo de "CABO DIRETO".
+	Se utilizarmos o cabo direto para conectar com outro computador com a mesma placa de rede, não funcionará, pois ele irão transmitir / receber as informações nos mesmos fios, oque irá causar uma 'colisão'.
+	Por este motivo temos o padrão T658B que seque o padrão:
+		1 - Branco / laranja
+		2 - Laranja
+		3 - Branco / verde
+		4 - Azul
+		5 - Branco / azul
+		6 - Verde
+		7 - Branco / marrom
+		8 - Marrom
+	Utilizamos ambos os padrões, iremos conseguir conectar dois computadores com o cabo, pois não haverá a colisão dos dados, uma vez que os fios que transmitem / recebem as informações estão alternados nas pontas. Quando misturamos estes padrões, temos o chamado 'CABO CRUZADO'.
+	As placas de redes mais modernas conseguem perceber as diferenças e efetiar as correções via software (padrão auto-MDIX), porém, como isso não é uma regra, é necessário que tomemos cuidado com o tipo de cabo utilizado.
+
+==================================
