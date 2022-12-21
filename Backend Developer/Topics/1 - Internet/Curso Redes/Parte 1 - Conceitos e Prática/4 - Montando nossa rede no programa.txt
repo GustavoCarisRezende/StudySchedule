@@ -2,10 +2,37 @@
 	MONTANDO NOSSA REDE NO PROGRAMA
 ========================================
 
-	=> I - INSTALANDO O PACKAT TRACER
+	=> I - INSTALANDO O PACKET TRACER
 
-	
+	Com o crecimento da nossa rede, iremos utilizar um software da CISCO para simular a contrução das nossas redes, sendo este o packet trace. O mesmo se encontra disponível para download no site oficial da CISCO.
+	O processo de instalação é simples, não sendo preciso alterar nenhuma configuração padrão do mesmo.
+	Na interface do packet tracer, no canto inferior esquerdo temos os equipamentos que vamos selecionar (computadores, hubs, etc...).
 
 
+	=> II - LIMITAÇÃO HUB
+
+	Quando nossa rede de 3 computadores criadas, ao alterar o modo do tempo para simulação e utilizar o comando ping em outro computador, podemos verificar a presença de dois protocolos, o ICMP e o ARP. O protocolo ARP é enviado ao hub e o mesmo realiza uma consulta em todos os dispositivos da rede para descobrir qual o dispositivo com o endereço utilizado (no caso 192.168.0.1).
+	Com isso todas as máquinas recebem a informação, porém, aqueles que não são do endereço utilizado, descartam as informações recebidas.
+	Após receber a confirmação, o HUB repassa a informação para todas as máquinas, pois isso é uma limitação do mesmo, onde ele não consegue "aprender" as conexões das máquinas na rede, enviando os pedidos para todos os dispositivos da rede exeto para a máquina que realizou o enviou.
+	O HUB pode causar uma lentidão muito grande na rede, além das questões de segurança.
+
+
+	=> III - WIRESHARK HTTP FINAL
+
+	Wireshark é um programa para análise de tráfego de rede, onde iremos utilizar o mesmo juntamente a vulnerabilidade do hub para verificar oque o ususário está acessando em sua máquina.
+	A visualização pode ser feita em sites com protocolo HTTP, onde na linha em questão, na opção Follow é possível visualizar as informações trafegadas, isto ocorre por limitação do HUB.
+
+
+	=> IV - WIRESHARK HTTP FINAL
+
+	Durante a aula o professor utilizou um exemplo de consultas realizadas no site Buscapé, porém, hoje não é possível reproduzir o caso uma vez que foi aderido o protocolo HTTPS e a utilização de criptografia por parte do marketplace em questão.
+	Já no site do youtube, é utilizado o protocolo HTTPS, que utiliza uma camada de criptografia, ou seja, ao realizar a análise dde tráfego na rede, isso pode dificultar na análise das informações.
+	No wireshark podemos filtrar um ip de destinho com o comando "ip.addr==192.168.0.2".
+	A principal função do wireshar é analisar protocolos para resolver problemas em redes.
+	TLS (Transport Layer Security) seria um protocolo de criptografia utilizado para segurança da informação.
+	O protocolo TCP encontra-se acima da camada onde o IP está localizado e ele é responsável por realizar o transporte da minha informação. Além do protocolo TCP, essa camada possui também outro protocolo bastante conhecido, o UDP.
+
+	=> PESQUISA SOBRE OSI:
+		- https://www.alura.com.br/artigos/conhecendo-o-modelo-osi?gclid=Cj0KCQiA14WdBhD8ARIsANao07hpVEG_nWbamXQr1Rzf_8xB-aSRfkMV51-mjMygtwXuAq15ERI_9YAaAkxIEALw_wcB
 
 ========================================
