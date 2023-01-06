@@ -1,0 +1,52 @@
+==========================================
+    ROTEADORES E A COMUNICAÇÃO EXTERNA
+==========================================
+
+    I => MÁSCARAS DE REDE
+    Não é porque os computadores estão conectados no mesmo Switche ou Hub que elas estão na mesma rede, onde podemos realizar uma separação lógica das mesmas. Com essas segmentações de rede, podemos limitar a banda de internet disponivel para cada uma das partes, ou o particionamento pode ser feito por questões de segurança.
+    A máscara de rede é responsável por realizar essa divisão, onde o mesmo divide o endereço IP em dois grupos: Referente a rede e referente aos hosts (máquinas).
+        - 255 = Rede
+        - 0 = Máquinas
+    Onde o valor da mascára de rede está 255, significa que para o dispositivo estar na mesma rede, o endereço IP do dispositivo deve ter o mesmo valor no octeto em questão.
+
+
+    II => ROTEADORES
+    Em uma situação onde nossa máscara de rede é 255.255.255.0 e, temos duas máquinas com os seguintes endereços IP's:
+        - 192.168.3.2
+        - 191.168.3.1
+    Caso seja tentado realizar a comunicação entre as máquinas, não será possível realizar o processo, pois as mesmas se encontram em redes diferentes. Para possibilitar que dispositivos de redes diferentes se comuniquem, utilizamos os reteadores.
+    Para decidirmos qual cabo utilizar para conectar dois dispositivos, podemos nos fazer duas perguntas:
+        - Os dispositivos são identicos?
+        - Eu vou estar explorando a capacidade máxima destes meus dispositivos?
+    Caso a resposta para a primeira seja SIM ou a resposta para a segunda pergunta seja NÃO, utilizamos o cabo cruzado (4ª opção nos cabos do Packet Trace).
+
+
+    III => CONFIGURANDO ROTEADOR
+    Vale ressaltar que os roteadores no qual estamos nos referindo são equipamentos focados a empresas, diferentes dos "roteadores" domésticos que temos em casa.
+    Para configurar os equipamentos da CISCO, precisamos de um cabo especial, o cabo console (com uma ponte RJ 45 e a outra semelhante ao VGA (RS232), mas não podemos confundir). Como a maior parte dos dispositivos atualmente não possuem essa entrada, utilizamos adaptadores USB.
+    Para realizar a comunicação com as máquinas da CISCO, utilizamos o Putty em um computador externo para realizarmos a configuração do roteador. No Packet Trace temos a aba CLI no roteador para realizar a configuração, porém, na vida real precisamos nos conectar ao equipamento pela entrada serial e, com a utilização do Putty, configurar o mesmo.
+    Por padrão, as portas dos roteadores da CISCO vem desabilitadas, ou seja, primeiro precisamos habilita-las. Ao acessar o roteador, estamos na opção 'Router>', onde a mesma é chamada de 'mode usuário', onde conseguimos utilizar somente de configuraçõoes básicas no mesmo. Para saber as configurações disponíveis neste modo, utilizamos do comando '?', onde podemos utilizar do mesmo em qualquer etapa da configuração dos equipamentos para auxílio no processo.
+    Para aumentar o privilégio, utilizamos o comando 'enable', onde "subimos" para o modo privilegiado, mas mesmo assim, ainda não conseguimos configurar o equipamento. Para acessar o modo de configuração, precisamos utilizar o comando 'configure terminal', assim o modo de operação muda para "Router(config)#>".
+    Para habilitar a porta no roteador, utilizamos o comando 'interface' e, em seguida informamos qual a porta que deve iremos configurar, como o exemplo:
+        - interface fastEthernet 0/0
+    Após acessar a configuração da porta, para habilita-la, utilizamos o comando 'no shutdown'.
+    Como a versão do programa utilizado é diferente da do professor e, selecionei outro roteador, utilizei do seguinte comando para acessar a configuração da porta:
+        - interface GigabitEthernet 0/0/0
+    Para sair da configuração da porta / interface, utilizamos o comando 'exit'.
+    Após liberar as portas, precisamos configurar os endereçamentos IP de cada uma das portas para conectarmos ambas as redes. Para configurar o ip estático da porta, precisamos estar no nível de configuração da mesma (comando interface) e, utilizamos do comando 'ip address 192.168.3.0 255.255.255.0', no caso o endereço IP precisa seguir as regras da máscara de rede.
+        - ip address -> define o IP que a interface irá utilizar para transmitir os dados entre as redes.
+        - 192.168.3.0 -> IP da porta utilizada.
+        - 255.255.255.0 -> Máscara de rede utilizada.
+    Para checar a configuração estabelecida, podemos no terminal do roteador, realizar um ping em uma máquina que está na rede configurada.
+    Após configuradas as portas, conseguimos fazer nosso roteador se comunicar com as máquinas das redes diferentes, porém, as máquinas n~çao conseguem se comunicar ainda.
+
+
+    IV => PORTÃO DE SAÍDA
+    Ao realizar o ping entre as duas máquinas do exemplo, o computador verifica os IP's informados e entende que ambos pertencem a redes diferentes, porém, o mesmo não sabe para onde enviar essa informação, por isso precisamos dizer ao mesmo para que envie as informações ao roteador. Para isso devemos informar o 'DEFAULT GATEWAY', ou seja, 'porta padrão', sendo essa a 'porta de saída' da minha rede, sendo assim, devemos informar neste campo o endereço IP atribuído a porta do roteador naquela rede. Entretanto, temos que configurar o gateway em ambas as máquinas, para que a informação consiga retornar no ping.
+    Para exibir os endereços IP'S das portas do roteadores, podemos utilizar o comando 'show ip interface brief'
+    
+
+    V => ROTEADORES DOMÉSTICOS
+    Em redes domésticas, podemos verificar o gateway padrão da rede através do comando 'ipconfig' ou 'ifconfig' e, ao colar o IP exibido no navegador, nos é aberta a tela de configrações do nosso roteador doméstico.
+
+==========================================

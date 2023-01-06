@@ -1,0 +1,14 @@
+=======================================
+        SWITCHES E SEUS AVANÇOS
+=======================================
+
+    => I - SWITCHES
+
+    Para evitar as limitações dos Hubs, foram desenvolvidos equipamentos para substituir o mesmo. Por este motivo surgiram os switches.
+    Tantos os hubs quanto os switches possuem o mesmo tipo de placa de rede, ou seja, transmitem e recebem, informações pelos mesmos fios nos cabos de redes, por isso, para interligar as máquinas com o mesmo são utilizados os cabos diretos.
+    Após conectar as máquinas aos cabos, é necessário esperar alguns segundos para que seja feito o reconhecimento das portas e permitido o uso da conexão, isso é representado na simulação.
+    Para o switche 'saber' qual a máquina que o mesmo deve se comunicar e, não espalhar a informação para todas as máquinas da rede, quando o protocolo ARP encontra a máquina com o endereço IP correspondente, o mesmo recebe o endereço MAC da placa de rede do dispositivo no qual foi feita a requisição, onde os mesmos trabalham em camadas diferentes. Por sua vez, o switche salva na memória os endereços MAC dos dispositivos na rede, desta forma, quando houverem requisições, o mesmo consegue administrar a mesma de forma mais ágil.
+    Por mais que o switche melhorou na questão de segurança, evitando que as informações sejam compartilhadas por toda a rede, porém, ainda é possível explorar algumas falhas, como por exemplo quando a memória do switche enche, onde os hackers utilizam de técnicas para encher a memória do mesmo e, com a memória cheia, o switche começa a distribuir informação para toda a rede, atuando como um HUB.
+    Para prevenção deste tipo de ataque, podemos utilizar o Port Secutiry, onde podemos limitar a quantidade de endereços mac por porta do switche. Caso o usuário malicioso tente atribuir mais endereços a porta limitada, a mesma é desativada.
+
+=======================================

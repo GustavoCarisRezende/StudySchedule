@@ -1,0 +1,48 @@
+===========================================
+        ENTENDENDO OS ENDEREÇOS IPS
+===========================================
+
+    I => CLASSES IP
+    Para identificar uma máquina na rede utilizamos o endereço IP, porém, não podemos atribuir qualquer endereço as máquinas, existem padrões determinados pela IETF (Internet Engineering Task Force)a serem seguidos. Esta padronização é dividida em classes, onde:
+        -> CLASSE A: Primeiro octeto no intervalo de 1 - 126, além da máscara ser '255.0.0.0'
+        -> CLASSE B: Primeiro octeto no intervale de 128 - 191, máscara '255.255.0.0'
+        -> CLASSE C: Primeiro octeto no intervalo de 192 - 223, máscara '255.255.255.0'
+        -> CLASSE D: Primeiro octeto no intervalo de 224-239 (classe reservada para multicast, não sendo atribuída para as máquinas convencionais na rede)
+        -> CLASSE E: Primeiro octeto no intervalo de 240-255 (classe experimental, não sendo atribuída para as máquinas convencionais na rede)
+
+    
+    II => IP PRIVADO
+    Dentro das classes que são atribuídas as máquinas, sendo estas: A, B e C, temos as faixas de endereços chamados de 'IP Privado'. Tendo estes nomes pois estes endereços servem somente para comunicação interna na minha rede, não podendo ser utilizados para comunicação externa na internet. temos os seguintes valores de IP's privados para as classes:
+        -> CLASSE A: 10.x.x.x
+        -> CLASSE B: 172.16.x.x - 172.31.x.x
+        -> CLASSE C: 192.168.x.x
+    Como o IP privado não consegue se comunicar na internet, quando contratamos o serviço de internet, as empresas nos fornecem um IP público para ser utilizado na internet. No caso de redes domésticas, o roteador realiza esse repasse das informações para que os dispositivos consigam se comunicar externamente. Essa tradução das informações é chamado de NAT.
+
+
+    III => IPV6
+    No momento estamos utilizando o IPV4 para estudos, porém, existe também o IPV6, pois o IPV4 chegou ao fim, pela quantidade de dispositivos na internet. Por isso foi criado o IPV6, que possuí diversas funcionalidades e recursos que não serão abordados no curso.
+
+
+    IV => ENDEREÇOS RESERVADOS CLASSE A
+    Temos valores mínimos e máximos que podem ser utilizados em cada octeto de um endereço IP, sendo o mínimo 0 e o máximo 255. Porém, não podemos utilizar os valores dos octetos de qualquer forma, pois todos os endereços IP's estão inseridos dentro de uma rede e, nesta temos o 'endereço de broadcast', que é utilizado para realizar a comunicação entre todos os dispositivos da rede.
+    Para descobrir o endereço de rede de uma máquina, devemos comparar o endereço IP da mesma com a máscara de rede, onde substituimos os octetos da máscara compostos ppor 255 pelo respectivo octeto do endereço IP, como mostrado no exemplo:
+        Endereço: 124.4.7.9
+        Máscara:  255.0.0.0
+                  124.0.0.0 - Endereço de rede
+    Já para descobrir o endereço de broadcast, devemos cortar somente os '0' que vieram originalmente da máscara de rede, ou seja, se o 0 vir do IP, o mesmo não deve ser cortado. Com os 0 cprtados, vamos substitui-los por 255, como mostrado abaixo:
+        Endereço de rede:   124.0  .0  .0
+        Endereço broadcast: 124.255.255.255   
+    O endereço de rede e de broadcast não podem ser utilizados para nenhuma máquina, porém, podemos utilizar todos os endereços neste intervalo.
+
+
+    V => ENDEREÇOS RESERVADOS CLASSE B
+    A regra de endereços reservados se replica para a classe B, porém, pelo fato da máscara de rede ser diferente, devemos nos atentar a este fato na hora de determinar o endereço de rede e o endereço de broadcast.
+
+
+    VI => ENDEREÇOS RESERVADOS CLASSE C
+    Novamente, as regras de endereços reservados se replicam para a classe C, com a diferença da máscara de rede.
+
+
+    P.S.: Para verificar se o endereço é válido o mesmo precisa estar entre o endereço de rede e o endereço de broadcast.
+
+===========================================
