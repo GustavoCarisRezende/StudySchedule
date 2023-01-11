@@ -1,0 +1,17 @@
+==================================
+    ENDEREÇAMENTOS IP COM DHCP
+==================================
+
+    I => DHCP
+    Até o momento nós configuramos os IP's nas máquinas manualmente, porém, isso se torna inviável em redes grandes. Para isso temos os servidores DHCP, que realizam a atribuição dos endereços de forma automática. No caso, quem irá funcionar como o servidor DHCP será o roteador.
+    Para configurar o equipamento para trabalhar com DHCP, primeiro temos que habilitar a interface que está conectada com nosso switche. Após liberar a porta precisamos criar um grupo de endereços e nomea-lo, para isso utilizamos do comando "ip dhcp pool NOME_ATRIBUIDO". Desta forma iremos acessar a interface de configurações da pool. Em seguida devemos informar com qual rede iremos trabalhar, para isso executamos o comando 'network ENDEREÇO_DE_REDE MASCARA_DE_REDE', como o exemplo:
+        -> network 192.168.0.0 255.255.255.0
+    Em sequência podemos atribuir a nossas máquinas o gateway a ser utilizado, ou seja, para onde as informações devem ser enviadas para comunicação para fora da rede. Para utilizamos o comando 'default-router ENDEREÇO_DO_ROTEADOR'
+        -> default-router 192.168.0.1
+    Porém, para isso funcionar é necessário que a porta esteja configurada com o endereço IP utilizado no comando acima.
+    Para verificar o funcionamento do processo, é necessário mudar o método de IP de estático para DHCP. Com isso o computador "pergunta" na rede quem pode dar um endereço ip para ele e, após receber o endereço, o roteador retorna um 'ok'.
+
+
+
+
+==================================
